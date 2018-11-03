@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 1,构造器实例化，（无参数构造器） 最标准，使用最多 -->
+	<bean id="cat1" class="creatBean._01_constructor.Cat1" />
+	<!-- 静态工厂实例化，解决历史遗留问题 -->
+	<bean id="cat2" class="creatBean._02_staticFactory.Cat2"
+		factory-method="createInstance"></bean>
+		<!-- 实例工厂， -->
+	<bean id="factory" class="creatBean._03_instanceFactory.Cat3Factory"></bean>	
+	<bean id="Cat3" factory-bean="factory" factory-method="createInstance"></bean>
+	<!-- 实例工厂变种 -->
+	<bean id="Cat4" class="creatBean._04_FactoryBean.Cat4Factory"></bean>
+</beans>
